@@ -1,0 +1,23 @@
+
+============================================================
+     RELATÓRIO FINAL — SMA TUTORIA INTELIGENTE
+============================================================
+Tempo total de sessão:      4m 40s
+Mensagens trocadas:         76
+Intervenções pedagógicas:   1
+
+------ DESEMPENHO POR TÓPICO ------
+Frações                | Acertos:   2 | Erros:  13 | Taxa:  13,3% | Dificuldade: 1,00
+Equações               | Acertos:   6 | Erros:   6 | Taxa:  50,0% | Dificuldade: 0,50
+Porcentagem            | Acertos:   9 | Erros:   1 | Taxa:  90,0% | Dificuldade: 0,10
+Geometria              | Acertos:   8 | Erros:   2 | Taxa:  80,0% | Dificuldade: 0,20
+
+------ HISTÓRICO DE INTERVENÇÕES ------
+13:05:38 — Frações ← REC_001
+
+------ AVALIAÇÃO PEDAGÓGICA ------
+O SMA detectou e interveio em 1 momento(s) de dificuldade.
+Tópico de maior dificuldade: Frações
+Tópico de melhor desempenho: Porcentagem
+============================================================
+

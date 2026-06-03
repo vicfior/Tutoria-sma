@@ -1,0 +1,32 @@
+
+============================================================
+     RELATÓRIO FINAL — SMA TUTORIA INTELIGENTE
+============================================================
+Tempo total de sessão:      16m 0s
+Mensagens trocadas:         291
+Intervenções pedagógicas:   7
+
+------ DESEMPENHO POR TÓPICO ------
+Frações                | Acertos:   7 | Erros:  22 | Taxa:  24,1% | Dificuldade: 1,00
+Estatística            | Acertos:   9 | Erros:  16 | Taxa:  36,0% | Dificuldade: 0,85
+Álgebra                | Acertos:   6 | Erros:  19 | Taxa:  24,0% | Dificuldade: 0,95
+Trigonometria          | Acertos:   5 | Erros:  20 | Taxa:  20,0% | Dificuldade: 1,00
+Equações               | Acertos:   8 | Erros:  17 | Taxa:  32,0% | Dificuldade: 0,95
+Porcentagem            | Acertos:  18 | Erros:   7 | Taxa:  72,0% | Dificuldade: 0,00
+Geometria              | Acertos:  17 | Erros:   8 | Taxa:  68,0% | Dificuldade: 0,05
+
+------ HISTÓRICO DE INTERVENÇÕES ------
+16:22:23 — Trigonometria ← REC_023
+16:22:48 — Frações ← REC_004
+16:23:03 — Equações ← REC_007
+16:24:43 — Álgebra ← REC_020
+16:27:13 — Estatística ← REC_016
+16:28:08 — Trigonometria ← REC_023
+16:31:23 — Frações ← REC_004
+
+------ AVALIAÇÃO PEDAGÓGICA ------
+O SMA detectou e interveio em 7 momento(s) de dificuldade.
+Tópico de maior dificuldade: Frações
+Tópico de melhor desempenho: Porcentagem
+============================================================
+

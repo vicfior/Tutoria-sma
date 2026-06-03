@@ -1,0 +1,53 @@
+
+============================================================
+     RELATÓRIO FINAL — SMA TUTORIA INTELIGENTE
+============================================================
+Tempo total de sessão:      61m 31s
+Mensagens trocadas:         1113
+Intervenções pedagógicas:   28
+
+------ DESEMPENHO POR TÓPICO ------
+Frações                | Acertos:  13 | Erros:  92 | Taxa:  12,4% | Dificuldade: 1,00
+Estatística            | Acertos:  41 | Erros:  64 | Taxa:  39,0% | Dificuldade: 1,00
+Álgebra                | Acertos:  31 | Erros:  74 | Taxa:  29,5% | Dificuldade: 1,00
+Trigonometria          | Acertos:  22 | Erros:  79 | Taxa:  21,8% | Dificuldade: 1,00
+Equações               | Acertos:  58 | Erros:  47 | Taxa:  55,2% | Dificuldade: 0,45
+Porcentagem            | Acertos:  78 | Erros:  27 | Taxa:  74,3% | Dificuldade: 0,05
+Geometria              | Acertos:  76 | Erros:  29 | Taxa:  72,4% | Dificuldade: 0,00
+
+------ HISTÓRICO DE INTERVENÇÕES ------
+11:20:55 — Frações ← REC_004
+11:22:45 — Estatística ← REC_016
+11:26:20 — Trigonometria ← REC_023
+11:26:45 — Frações ← REC_004
+11:31:20 — Estatística ← REC_016
+11:31:45 — Álgebra ← REC_020
+11:35:05 — Trigonometria ← REC_023
+11:35:30 — Frações ← REC_004
+11:41:20 — Frações ← REC_004
+11:46:46 — Trigonometria ← REC_023
+11:47:11 — Frações ← REC_004
+11:47:46 — Equações ← REC_007
+11:49:16 — Álgebra ← REC_020
+11:52:36 — Trigonometria ← REC_023
+11:53:01 — Frações ← REC_004
+11:56:31 — Equações ← REC_007
+11:57:36 — Estatística ← REC_016
+11:58:26 — Trigonometria ← REC_023
+12:00:56 — Álgebra ← REC_020
+12:01:46 — Frações ← REC_004
+12:03:26 — Estatística ← REC_016
+12:06:56 — Álgebra ← REC_020
+12:07:36 — Frações ← REC_004
+12:10:06 — Trigonometria ← REC_023
+12:13:51 — Equações ← REC_007
+12:15:56 — Trigonometria ← REC_023
+12:16:21 — Frações ← REC_004
+12:18:36 — Álgebra ← REC_020
+
+------ AVALIAÇÃO PEDAGÓGICA ------
+O SMA detectou e interveio em 28 momento(s) de dificuldade.
+Tópico de maior dificuldade: Frações
+Tópico de melhor desempenho: Geometria
+============================================================
+

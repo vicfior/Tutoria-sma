@@ -1,0 +1,23 @@
+
+============================================================
+     RELATÓRIO FINAL — SMA TUTORIA INTELIGENTE
+============================================================
+Tempo total de sessão:      4m 42s
+Mensagens trocadas:         72
+Intervenções pedagógicas:   0
+
+------ DESEMPENHO POR TÓPICO ------
+Frações                | Acertos:   1 | Erros:   9 | Taxa:  10,0% | Dificuldade: 0,90
+Estatística            | Acertos:   0 | Erros:   5 | Taxa:   0,0% | Dificuldade: 0,75
+Álgebra                | Acertos:   1 | Erros:   4 | Taxa:  20,0% | Dificuldade: 0,65
+Trigonometria          | Acertos:   0 | Erros:   5 | Taxa:   0,0% | Dificuldade: 0,75
+Equações               | Acertos:   6 | Erros:   4 | Taxa:  60,0% | Dificuldade: 0,40
+Porcentagem            | Acertos:   4 | Erros:   1 | Taxa:  80,0% | Dificuldade: 0,35
+Geometria              | Acertos:   4 | Erros:   3 | Taxa:  57,1% | Dificuldade: 0,45
+
+------ HISTÓRICO DE INTERVENÇÕES ------
+(nenhuma intervenção registrada)
+
+------ AVALIAÇÃO PEDAGÓGICA ------
+============================================================
+

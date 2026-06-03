@@ -1,0 +1,19 @@
+
+============================================================
+     RELATORIO FINAL - SMA TUTORIA INTELIGENTE
+============================================================
+Tempo total de sessao:     1m 53s
+Mensagens trocadas:        30
+Intervencoes pedagogicas:  0
+
+------ DESEMPENHO POR TOPICO ------
+topico:fracoes         | acertos:   1 | erros:   4 | taxa:  20,0% | dificuldade: 0,65
+topico:equacoes        | acertos:   2 | erros:   3 | taxa:  40,0% | dificuldade: 0,55
+topico:geometria       | acertos:   1 | erros:   0 | taxa: 100,0% | dificuldade: 0,45
+
+------ HISTORICO DE INTERVENCOES ------
+(nenhuma intervencao registrada)
+
+------ AVALIACAO PEDAGOGICA ------
+============================================================
+
