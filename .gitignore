@@ -28,3 +28,11 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+# Outputs do SMA
+relatorio-sma-*.txt
+grafico*.png
+
+# JADE (dependência externa — não versionar)
+lib/
+*.jar

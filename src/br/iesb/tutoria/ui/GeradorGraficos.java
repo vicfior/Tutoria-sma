@@ -23,9 +23,9 @@ public class GeradorGraficos {
     private static final Color COR_LINHA1   = new Color(29, 158, 117);
     private static final Color COR_LINHA2   = new Color(216, 90, 48);
 
-    private static final int W = 900;
-    private static final int H = 500;
-    private static final int ML = 80, MR = 40, MT = 75, MB = 90;
+    private static final int W = 1100;
+    private static final int H = 620;
+    private static final int ML = 100, MR = 50, MT = 90, MB = 110;
 
     // dicionario de labels com acentuacao correta
     private static final Map<String, String> LABELS = new LinkedHashMap<>();
@@ -55,8 +55,8 @@ public class GeradorGraficos {
             System.out.println("[GeradorGraficos] Erro grafico 1: " + e.getMessage());
         }
         try {
-            gerarGraficoCombinado(dadosTopicos, "grafico2_combinado_" + ts + ".png");
-            System.out.println("[GeradorGraficos] Grafico 2 (combinado lado a lado) salvo.");
+            gerarGraficoDificuldade(dadosTopicos, "grafico2_dificuldade_" + ts + ".png");
+            System.out.println("[GeradorGraficos] Grafico 2 (dificuldade) salvo.");
         } catch (Exception e) {
             System.out.println("[GeradorGraficos] Erro grafico 2: " + e.getMessage());
         }
@@ -407,21 +407,21 @@ public class GeradorGraficos {
         int n = topicos.size();
         if (n == 0) return;
 
-        int ml = offX + 60, mr = 20, mt = offY + 70, mb = 85;
+        int ml = offX + 75, mr = 20, mt = offY + 88, mb = 105;
         int areaW = w - ml + offX - mr - 60;
         int areaH = h - mt + offY - mb;
 
         // titulo
-        g.setFont(new Font("SansSerif", Font.BOLD, 13));
+        g.setFont(new Font("SansSerif", Font.BOLD, 16));
         g.setColor(COR_TEXTO);
         String titulo = "Dificuldade percebida por t\u00f3pico";
         int tw = g.getFontMetrics().stringWidth(titulo);
-        g.drawString(titulo, offX + w / 2 - tw / 2, offY + 24);
-        g.setFont(new Font("SansSerif", Font.PLAIN, 10));
+        g.drawString(titulo, offX + w / 2 - tw / 2, offY + 28);
+        g.setFont(new Font("SansSerif", Font.PLAIN, 13));
         g.setColor(COR_SUBTIT);
         String sub = "Agente Avaliador: 0,0 = dom\u00ednio, 1,0 = m\u00e1x. dificuldade";
         int sw = g.getFontMetrics().stringWidth(sub);
-        g.drawString(sub, offX + w / 2 - sw / 2, offY + 42);
+        g.drawString(sub, offX + w / 2 - sw / 2, offY + 50);
 
         // grade
         for (int v = 0; v <= 10; v += 2) {
@@ -430,26 +430,26 @@ public class GeradorGraficos {
             g.setColor(COR_GRADE);
             g.drawLine(ml, y, ml + areaW, y);
             g.setColor(COR_SUBTIT);
-            g.setFont(new Font("SansSerif", Font.PLAIN, 10));
-            g.drawString(String.format("%.1f", val).replace(".", ","), ml - 28, y + 4);
+            g.setFont(new Font("SansSerif", Font.PLAIN, 13));
+            g.drawString(String.format("%.1f", val).replace(".", ","), ml - 36, y + 5);
         }
 
         // limiar 0.7
         int yRef = mt + areaH - (int)(0.7 * areaH);
         g.setColor(new Color(216, 90, 48, 130));
-        g.setStroke(new BasicStroke(1.2f, BasicStroke.CAP_BUTT,
-                BasicStroke.JOIN_MITER, 10, new float[]{5, 4}, 0));
+        g.setStroke(new BasicStroke(1.4f, BasicStroke.CAP_BUTT,
+                BasicStroke.JOIN_MITER, 10, new float[]{6, 4}, 0));
         g.drawLine(ml, yRef, ml + areaW, yRef);
         g.setStroke(new BasicStroke(1));
         g.setColor(COR_VERMELHO);
-        g.setFont(new Font("SansSerif", Font.PLAIN, 9));
-        g.drawString("0,7", ml + areaW + 3, yRef + 4);
+        g.setFont(new Font("SansSerif", Font.PLAIN, 12));
+        g.drawString("0,7", ml + areaW + 4, yRef + 5);
 
         g.setColor(new Color(200, 200, 200));
         g.drawLine(ml, mt, ml, mt + areaH);
         g.drawLine(ml, mt + areaH, ml + areaW, mt + areaH);
 
-        int largBarra = Math.max(16, areaW / n - 10);
+        int largBarra = Math.max(20, areaW / n - 12);
         int passo     = areaW / n;
 
         for (int i = 0; i < n; i++) {
@@ -460,20 +460,20 @@ public class GeradorGraficos {
             int y      = mt + areaH - altBar;
 
             g.setColor(corPorDificuldade(dif));
-            g.fillRoundRect(x, y, largBarra, Math.max(4, altBar), 5, 5);
+            g.fillRoundRect(x, y, largBarra, Math.max(4, altBar), 6, 6);
 
-            g.setFont(new Font("SansSerif", Font.BOLD, 10));
+            g.setFont(new Font("SansSerif", Font.BOLD, 13));
             String val = String.format("%.2f", dif).replace(".", ",");
             int vw = g.getFontMetrics().stringWidth(val);
             g.setColor(COR_TEXTO);
-            g.drawString(val, x + largBarra / 2 - vw / 2, y - 4);
+            g.drawString(val, x + largBarra / 2 - vw / 2, y - 5);
 
             String label = LABELS.getOrDefault(topico, topico.replace("topico:", ""));
-            g.setFont(new Font("SansSerif", Font.PLAIN, 10));
+            g.setFont(new Font("SansSerif", Font.PLAIN, 13));
             Graphics2D gr = (Graphics2D) g.create();
             gr.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
                     RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-            gr.translate(x + largBarra / 2, mt + areaH + 12);
+            gr.translate(x + largBarra / 2, mt + areaH + 14);
             gr.rotate(Math.toRadians(35));
             gr.setColor(COR_TEXTO);
             gr.drawString(label, 0, 0);
@@ -481,10 +481,10 @@ public class GeradorGraficos {
         }
 
         // legenda
-        int ly = offY + h - 26;
-        desenharPilulaOff(g, ml, ly, COR_VERDE,    "< 0,4 \u2014 dom\u00ednio");
-        desenharPilulaOff(g, ml + 140, ly, COR_AMARELO, "0,4\u20130,7");
-        desenharPilulaOff(g, ml + 220, ly, COR_VERMELHO, "> 0,7 \u2014 dificuldade");
+        int ly = offY + h - 28;
+        desenharPilulaOff(g, ml, ly, COR_VERDE,     "< 0,4 \u2014 dom\u00ednio");
+        desenharPilulaOff(g, ml + 170, ly, COR_AMARELO,  "0,4\u20130,7");
+        desenharPilulaOff(g, ml + 270, ly, COR_VERMELHO, "> 0,7 \u2014 dificuldade");
     }
 
     // renderiza o grafico de linha em um Graphics2D externo (usado pelo combinado)
@@ -500,21 +500,21 @@ public class GeradorGraficos {
         int n = topicos.size();
         if (n == 0) return;
 
-        int ml = offX + 60, mr = 20, mt = offY + 70, mb = 85;
+        int ml = offX + 75, mr = 20, mt = offY + 88, mb = 105;
         int areaW = w - ml + offX - mr - 20;
         int areaH = h - mt + offY - mb;
 
         // titulo
-        g.setFont(new Font("SansSerif", Font.BOLD, 13));
+        g.setFont(new Font("SansSerif", Font.BOLD, 16));
         g.setColor(COR_TEXTO);
         String titulo = "Taxa de acerto vs. dificuldade percebida";
         int tw = g.getFontMetrics().stringWidth(titulo);
-        g.drawString(titulo, offX + w / 2 - tw / 2, offY + 24);
-        g.setFont(new Font("SansSerif", Font.PLAIN, 10));
+        g.drawString(titulo, offX + w / 2 - tw / 2, offY + 28);
+        g.setFont(new Font("SansSerif", Font.PLAIN, 13));
         g.setColor(COR_SUBTIT);
-        String sub = "Verde = acerto (%) · Vermelho tracejado = D(t) do Avaliador";
+        String sub = "Verde = acerto (%) \u00b7 Vermelho tracejado = D(t) do Avaliador";
         int sw = g.getFontMetrics().stringWidth(sub);
-        g.drawString(sub, offX + w / 2 - sw / 2, offY + 42);
+        g.drawString(sub, offX + w / 2 - sw / 2, offY + 50);
 
         // grade
         for (int v = 0; v <= 10; v += 2) {
@@ -523,8 +523,8 @@ public class GeradorGraficos {
             g.setColor(COR_GRADE);
             g.drawLine(ml, y, ml + areaW, y);
             g.setColor(COR_SUBTIT);
-            g.setFont(new Font("SansSerif", Font.PLAIN, 10));
-            g.drawString(String.format("%.0f%%", val * 100), ml - 28, y + 4);
+            g.setFont(new Font("SansSerif", Font.PLAIN, 13));
+            g.drawString(String.format("%.0f%%", val * 100), ml - 36, y + 5);
         }
 
         g.setColor(new Color(200, 200, 200));
@@ -550,37 +550,37 @@ public class GeradorGraficos {
         }
 
         // linha verde (taxa)
-        g.setStroke(new BasicStroke(2.2f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
+        g.setStroke(new BasicStroke(2.8f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
         g.setColor(COR_LINHA1);
         for (int i = 0; i < n - 1; i++) g.drawLine(xPts[i], yTaxa[i], xPts[i+1], yTaxa[i+1]);
-        g.setStroke(new BasicStroke(2));
+        g.setStroke(new BasicStroke(2.2f));
         for (int i = 0; i < n; i++) {
             g.setColor(Color.WHITE);
-            g.fillOval(xPts[i]-4, yTaxa[i]-4, 9, 9);
+            g.fillOval(xPts[i]-5, yTaxa[i]-5, 11, 11);
             g.setColor(COR_LINHA1);
-            g.drawOval(xPts[i]-4, yTaxa[i]-4, 9, 9);
+            g.drawOval(xPts[i]-5, yTaxa[i]-5, 11, 11);
         }
 
         // linha vermelha tracejada (dificuldade)
-        g.setStroke(new BasicStroke(2f, BasicStroke.CAP_ROUND,
-                BasicStroke.JOIN_ROUND, 10, new float[]{7, 4}, 0));
+        g.setStroke(new BasicStroke(2.5f, BasicStroke.CAP_ROUND,
+                BasicStroke.JOIN_ROUND, 10, new float[]{8, 5}, 0));
         g.setColor(COR_LINHA2);
         for (int i = 0; i < n - 1; i++) g.drawLine(xPts[i], yDif[i], xPts[i+1], yDif[i+1]);
-        g.setStroke(new BasicStroke(2));
+        g.setStroke(new BasicStroke(2.2f));
         for (int i = 0; i < n; i++) {
             g.setColor(COR_LINHA2);
-            g.fillOval(xPts[i]-4, yDif[i]-4, 8, 8);
+            g.fillOval(xPts[i]-5, yDif[i]-5, 10, 10);
         }
 
         // labels eixo X
-        g.setFont(new Font("SansSerif", Font.PLAIN, 10));
+        g.setFont(new Font("SansSerif", Font.PLAIN, 13));
         for (int i = 0; i < n; i++) {
             String label = LABELS.getOrDefault(topicos.get(i),
                     topicos.get(i).replace("topico:", ""));
             Graphics2D gr = (Graphics2D) g.create();
             gr.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
                     RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-            gr.translate(xPts[i], mt + areaH + 12);
+            gr.translate(xPts[i], mt + areaH + 14);
             gr.rotate(Math.toRadians(35));
             gr.setColor(COR_TEXTO);
             gr.drawString(label, 0, 0);
@@ -588,29 +588,29 @@ public class GeradorGraficos {
         }
 
         // legenda
-        int ly = offY + h - 26;
-        g.setStroke(new BasicStroke(2.2f));
+        int ly = offY + h - 28;
+        g.setStroke(new BasicStroke(2.8f));
         g.setColor(COR_LINHA1);
-        g.drawLine(ml, ly - 4, ml + 20, ly - 4);
+        g.drawLine(ml, ly - 5, ml + 26, ly - 5);
         g.setColor(COR_TEXTO);
-        g.setFont(new Font("SansSerif", Font.PLAIN, 10));
-        g.drawString("Taxa de acerto", ml + 25, ly);
+        g.setFont(new Font("SansSerif", Font.PLAIN, 13));
+        g.drawString("Taxa de acerto", ml + 32, ly);
 
-        g.setStroke(new BasicStroke(2f, BasicStroke.CAP_ROUND,
-                BasicStroke.JOIN_ROUND, 10, new float[]{7, 4}, 0));
+        g.setStroke(new BasicStroke(2.5f, BasicStroke.CAP_ROUND,
+                BasicStroke.JOIN_ROUND, 10, new float[]{8, 5}, 0));
         g.setColor(COR_LINHA2);
-        g.drawLine(ml + 160, ly - 4, ml + 180, ly - 4);
+        g.drawLine(ml + 190, ly - 5, ml + 216, ly - 5);
         g.setColor(COR_TEXTO);
         g.setStroke(new BasicStroke(1));
-        g.drawString("D(t) — dificuldade", ml + 185, ly);
+        g.drawString("D(t) \u2014 dificuldade", ml + 222, ly);
     }
 
     private static void desenharPilulaOff(Graphics2D g, int x, int y, Color cor, String texto) {
         g.setColor(cor);
-        g.fillRoundRect(x, y - 7, 10, 10, 3, 3);
+        g.fillRoundRect(x, y - 8, 13, 13, 4, 4);
         g.setColor(COR_SUBTIT);
-        g.setFont(new Font("SansSerif", Font.PLAIN, 10));
-        g.drawString(texto, x + 14, y + 2);
+        g.setFont(new Font("SansSerif", Font.PLAIN, 13));
+        g.drawString(texto, x + 18, y + 3);
     }
 
     private static Graphics2D configurar(BufferedImage img) {
